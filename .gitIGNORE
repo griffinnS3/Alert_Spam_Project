@@ -1,0 +1,7 @@
+.env
+# Virtual environments
+venv/
+include/
+Lib/
+Scripts/
+pyvenv.cfg
