@@ -1,9 +1,12 @@
 import json
 from elasticsearch import Elasticsearch
 from openai import OpenAI
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 es = Elasticsearch("https://your-es-host:9200", api_key="ES_API_KEY", verify_certs=False)
-qwen = OpenAI(base_url="https://llm.gameguild.gg/v1", api_key="QWEN_API_KEY")
+qwen = OpenAI(base_url="https://llm.gameguild.gg/v1", api_key=os.getenv("QWEN_API_KEY"))
 
 # --- Stage 1: parse/normalize in code, no model ---
 def parse_alert(doc):
